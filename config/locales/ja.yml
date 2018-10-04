@@ -10,6 +10,8 @@ ja:
   japanese: "日本語"
 
   users:
+    settings: "セッティング"
+    remember: "サインしたままにする"
     name: "ニックネーム"
     email: "メール"
     password: "パスワード"
@@ -24,6 +26,11 @@ ja:
     format: "%{message}"
 
   activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        email: "メール"
     errors:
       models:
         user:

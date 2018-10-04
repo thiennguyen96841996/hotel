@@ -2,9 +2,12 @@ en:
   hello: "Hello"
   page_title: "god's hotel"
   signup: "Sign Up"
+  login: "Login"
   greeting: "Welcome %{name}"
 
   users:
+    settings: "Setting"
+    remember: "Remember me"
     pass_confirm: "Password confirmation"
     min_pass: "%{min} characters minimum"
     confirmations: "Didn't receive confirmation instructions?"
