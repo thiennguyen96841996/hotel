@@ -21,9 +21,15 @@ ja:
 
   forgot_password:
     title: "パスワードを忘れた場合"
-
-  errors:
-    format: "%{message}"
+    reset_pass: "パスワード再設定"
+    submit: "パスワードを再設定"
+    content: "誰かがあなたのパスワードを変更するためのリンクをリクエストしました。下記のリンクをクリックしてパスワードの再設定をしてください："
+    info: "リクエストしていない場合は、このメールを無視してください。"
+    detail: "上記のリンクにアクセスして新しいパスワードを作成するまで、パスワードは変更されません。"
+    change: "パスワードを再設定"
+    confirmation: "新しいパスワードの確認"
+    new_pass: "新しいパスワード"
+    change_pass: "パスワード再設定"
 
   activerecord:
     models:
@@ -31,18 +37,23 @@ ja:
     attributes:
       user:
         email: "メール"
+        password: "パスワード"
+        password_confirmation: "パスワードの確認"
+        reset_password_token: "パスワードトークン"
     errors:
       models:
         user:
           attributes:
             password:
-              too_short: "最低6文字以上"
-              blank: "パスワードは必須のフィールドです"
+              too_short: "は最低6文字以上"
+              blank: "は必須のフィールドです"
             email:
-              blank: "メールは必須のフィールドです"
-              taken: "このメールは既に使用されています。別のメールを選択してください"
+              blank: "は必須のフィールドです"
+              taken: "は既に使用されています。別のメールを選択してください"
             password_confirmation:
-              confirmation: "パスワードは一致しません"
+              confirmation: "は一致しません"
+            reset_password_token:
+              invalid: "が無効です"
 
   activate_mail:
     greeting: "こんにちは %{email} さん"

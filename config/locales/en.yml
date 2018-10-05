@@ -14,6 +14,15 @@ en:
 
   forgot_password:
     title: "Forgot password?"
+    reset_pass: "Forgot password?"
+    submit: "Submit"
+    content: "Someone has requested a link to change your password. You can do this through the link below."
+    info: "If you didn't request this, please ignore this email."
+    detail: "Your password won't change until you access the link above and create a new one."
+    change: "Change my password"
+    confirmation: "Confirmation"
+    new_pass: "New password"
+    change_pass: "Change your password"
 
   activate_mail:
     greeting: "Hi %{email}"
