@@ -11,6 +11,15 @@ en:
     pass_confirm: "Password confirmation"
     min_pass: "%{min} characters minimum"
     confirmations: "Didn't receive confirmation instructions?"
+    edit: "Edit user"
+    update: "Update"
+    pass_confirm: "we need your current password to confirm your changes"
+    blank_pass: "leave blank if you don't want to change it"
+    current: "Current password"
+    edit_confirm: "Currently waiting confirmation for"
+    changed:
+      password: "We're contacting you to notify you that your password has been changed."
+      email: "We're contacting you to notify you that your email is being changed to %{email}"
 
   forgot_password:
     title: "Forgot password?"

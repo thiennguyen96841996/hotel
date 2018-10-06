@@ -18,6 +18,15 @@ ja:
     pass_confirm: "パスワードの確認"
     min_pass: "最低%{min}文字以上"
     confirmations: "まだ確認メールが届いていない場合はこちらへ"
+    edit: "ユーザー情報の編集"
+    update: "保存"
+    pass_confirm: "変更を確認するには現在のパスワードが必要です"
+    blank_pass: "変更したくない場合は空白のままにしてください"
+    current: "現在のパスワード"
+    edit_confirm: "まだ確認していない"
+    changed:
+      password: "パスワードが変更されたことをお知らせするためにご連絡いたします。"
+      email: "メールアドレスが変更されたことをお知らせするためにご連絡いたします。新たしいメールアドレス：%{email}"
 
   forgot_password:
     title: "パスワードを忘れた場合"
@@ -40,6 +49,8 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワードの確認"
         reset_password_token: "パスワードトークン"
+        current_password: "現在のパスワード"
+        confirmation_token: "確認トークン"
     errors:
       models:
         user:
@@ -54,9 +65,14 @@ ja:
               confirmation: "は一致しません"
             reset_password_token:
               invalid: "が無効です"
+            current_password:
+              invalid: "は不正です"
+              blank: "は必須のフィールドです"
+            confirmation_token:
+              invalid: "が無効です"
 
   activate_mail:
     greeting: "こんにちは %{email} さん"
     content: "神様ホテルへのサインアップありがとうございます！下記のリンクをクリックしてメールアドレスの認証をしてください："
     activate: "アクティブなアカウント"
-    title: "Resend confirmation instructions"
+    title: "登録確認メール再送信"
