@@ -14,4 +14,6 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validates :password, presence: true, allow_nil: true,
     length: {minimum: Settings.pass_min_length}
+
+  mount_uploader :picture, PictureUploader
 end

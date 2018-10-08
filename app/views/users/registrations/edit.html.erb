@@ -34,6 +34,15 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :picture, t("users.avatar") %> <br />
+    <span class="picture">
+      <%= image_tag resource.picture.url if resource.picture? %>
+      <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+    </span>
+  </div>
+
+
   <div class="actions">
     <%= f.submit t("users.update"), class: "btn btn-primary" %>
   </div>
