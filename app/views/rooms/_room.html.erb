@@ -1,7 +1,14 @@
 <li>
-  <%= link_to room.room_type, edit_room_path(room) %>
-  <%= t("activerecord.attributes.room.bed_numbers") %>: <%= room.bed_numbers %>
-  <%= t("activerecord.attributes.room.guest_no") %>: <%= room.guest_no %>
+  <div class="room-type">
+    <%= room.room_type %>
+  </div>
+  <div class="bed-number">
+    <span class="glyphicon glyphicon-bed" aria-hidden="true"></span> <%= t("activerecord.attributes.room.bed_numbers") %> : <%= room.bed_numbers %>
+  </div>
+  <div class="guest-no">
+    <span class="glyphicon glyphicon-user"></span> <%= t("activerecord.attributes.room.guest_no") %> : <%= room.guest_no %>
+  </div>
   <%= link_to t("delete"), room_path(room), method: :delete,
         data: {confirm: t("delete_confirm")}, class: "delete" %>
+  <%= link_to t("change"), edit_room_path(room), class: "edit" %>
 </li>

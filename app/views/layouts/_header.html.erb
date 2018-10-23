@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("home"), root_path %></li>
         <% if user_signed_in? %>
-          <% if current_user.admin? %>
+          <% if current_user.admin? || current_user.mod? %>
             <li class="dropdown">
               <%= link_to t("manage"), "#",
                 {"class": "dropdown-toggle", "data-toggle": "dropdown"} %>
@@ -13,6 +13,9 @@
                 <li><%= link_to t("hotel.title"), motels_path %></li>
                 <li><%= link_to t("room.title"), rooms_path %></li>
                 <li><%= link_to t("equipment.title"), equipments_path %></li>
+                <% if current_user.admin? %>
+                  <li><%= link_to t("users.title"), users_path %></li>
+                <% end %>
               </ul>
             </li>
           <% end %>

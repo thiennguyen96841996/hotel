@@ -1,0 +1,8 @@
+<% provide :title, t("users.title") %>
+<h1><%= t "users.title" %></h1>
+<ul id="users" class="users">
+  <%= render @users %>
+</ul>
+<div id="paginator">
+  <%= paginate @users, remote: true %>
+</div>

@@ -10,11 +10,12 @@ ja:
   japanese: "日本語"
   manage: "管理"
   add: "追加"
-  edit: "編集"
+  edit: "保存"
   delete_confirm: "本当に削除しても良いですか？"
   delete: "削除"
-  price: "価値"
+  price: "値段"
   duplicate: "重複%{collection}"
+  change: "編集"
 
   helpers:
     page_entries_info:
@@ -53,6 +54,11 @@ ja:
       email: "メールアドレスが変更されたことをお知らせするためにご連絡いたします。新たしいメールアドレス：%{email}"
     avatar: "アバター"
     choose_file: "アップロード"
+    mod: "マネージャにアップグレード"
+    member: "メンバーにダウングレード"
+    block: "ブロック"
+    unblock: "ブロック解除"
+    title: "ユーザー管理"
 
   forgot_password:
     title: "パスワードを忘れた場合"
@@ -71,6 +77,7 @@ ja:
       user: "ユーザー"
       hotel_equip: "設備"
       hotel_room: "ルーム"
+      review: "レビュー"
     attributes:
       user:
         email: "メール"
@@ -85,16 +92,21 @@ ja:
         bed_numbers: "ベッド数"
         guest_no: "最大人数"
       motel:
-        name: "ネーム"
+        name: "ホテル名"
         address: "アドレス"
         description: "説明"
         phone: "電話番号"
         images: "画像"
-        level: "レート"
+        level: "レベル"
       equipment:
-        name: "ネーム"
+        name: "設備名"
       hotel_equips:
-            price: "価値"
+        price: "値段"
+      review:
+        title: "題名"
+        content: "内容"
+        rate: "レート"
+        images: "画像"
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
@@ -162,6 +174,8 @@ ja:
     denied: "アクセスが拒否されました"
     update_success: "アップデート成功"
     delete_success: "削除成功"
+    no_record: "データを見つかりませんでした"
+    blocked: "ユーザーはブロックされています"
 
   room:
     title: "ルーム管理"
@@ -179,3 +193,8 @@ ja:
     add_equipment: "設備追加"
     edit_equipment: "設備編集"
     item: "設備"
+
+  review:
+    title: "レビュー"
+    add_review: "レビュー追加"
+    edit_review: "レビュー編集"

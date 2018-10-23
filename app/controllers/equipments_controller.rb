@@ -44,10 +44,10 @@ class EquipmentsController < ApplicationController
   private
 
   def find_equipment
-    @equipment = Equipment.find_by params[:id]
+    @equipment = Equipment.find_by id: params[:id]
 
     return if @equipment
-    flash[:danger] = t "flash.no_equipment"
+    flash[:danger] = t "flash.no_record"
     redirect_to root_url
   end
 

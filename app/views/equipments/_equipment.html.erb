@@ -1,5 +1,6 @@
 <li>
-  <%= link_to equipment.name, edit_equipment_path(equipment) %>
+  <%= equipment.name %>
   <%= link_to t("delete"), equipment_path(equipment), method: :delete,
         data: {confirm: t("delete_confirm")}, class: "delete" %>
+        <%= link_to t("change"), edit_equipment_path(equipment), class: "edit" %>
 </li>

@@ -1,0 +1,6 @@
+$("#like-form-<%= @review.id %>").html(
+  "<%= escape_javascript render("shared/like_form", review: @review) %>"
+);
+$("#like-count-<%= @review.id %>").html(
+  "<%= @review.likes.count %>"
+);

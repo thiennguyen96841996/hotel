@@ -1,0 +1,40 @@
+<div class="col-md-12 title">
+  <div class="name"><%= @motel.name %></div>
+  <span><%= @motel.level %> ✩</span>
+</div>
+
+<div class="address">
+  <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @motel.address %>
+</div>
+
+<div class="phone">
+  <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> <%= @motel.phone %>
+</div>
+
+<div style="margin-top: 100px">
+  <%= form_for @review, url: yield(:url) do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :motel_id, value: @motel.id %>
+    <div class="field">
+      <%= f.label :title, class: "label" %>
+      <%= f.text_field :title, class: "form-control input-add-new" %>
+    </div>
+    <div class="field">
+      <%= f.label :rate, class: "label" %>
+      <%= f.number_field :rate, min: 0, max: 5, class: "form-control input-add-new" %>
+  </div>
+    <div class="field">
+      <%= f.label :content, class: "label" %>
+      <%= f.text_area :content, size: '50x10', class: "form-control input-add-new" %>
+    </div>
+    <div class="field">
+    <%= f.label :images, class: "label" %>
+    <%= f.file_field :images, multiple: true, class: " input-add-new upload-image" %>
+    </div>
+    <div id="preview"></div>
+    <div class="text-center">
+      <%= f.submit yield(:button), class: "btn btn-custom2" %>
+    </div>
+  <% end %>
+</div>

@@ -1,9 +1,9 @@
 <%= provide :title, t("hotel.title") %>
 <%= link_to t("hotel.add_hotel"), new_motel_path, class: "btn btn-custom3" %>
-<div class="content">
-  <ul id="motels" class="motels">
+<div class="content row">
+  <div id="motels" class="motels">
     <%= render @motels %>
-  </ul>
+  </div>
 </div>
 <div id="paginator1">
   <%= paginate @motels, remote: true %>

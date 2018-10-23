@@ -1,6 +1,6 @@
 class MotelsController < ApplicationController
   load_and_authorize_resource
-  before_action :find_motel, only: [:edit, :update, :destroy]
+  before_action :find_motel, only: [:show, :edit, :update, :destroy]
 
   def index
     @motels = Motel.page(params[:page])
@@ -13,9 +13,8 @@ class MotelsController < ApplicationController
 
   def create
     @motel = Motel.new motel_params
-
     if @motel.save
-      redirect_to motels_path
+      redirect_to motel_path(@motel)
     else
       render :new
     end
@@ -30,7 +29,7 @@ class MotelsController < ApplicationController
   def update
     if @motel.update_attributes motel_params
       flash[:success] = t "flash.update_success"
-      redirect_to motels_path
+      redirect_to motel_path(@motel)
     else
       render :edit
     end
@@ -39,7 +38,7 @@ class MotelsController < ApplicationController
   def destroy
     @motel.destroy
     flash[:success] = t "flash.delete_success"
-    redirect_to motels_path
+    redirect_to root_path
   end
 
   private
@@ -51,10 +50,10 @@ class MotelsController < ApplicationController
   end
 
   def find_motel
-    @motel = Motel.find_by params[:id]
+    @motel = Motel.find_by id: params[:id]
 
     return if @motel
-    flash[:danger] = t "flash.no_motel"
+    flash[:danger] = t "flash.no_record"
     redirect_to root_url
   end
 end

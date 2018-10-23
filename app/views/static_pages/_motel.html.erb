@@ -1,12 +1,11 @@
 <%= link_to motel_path(motel) do %>
   <div class="col-md-4 home-form ">
-    <%= image_tag motel.images[0].url if motel.images? %>
     <% if motel.images? %>
       <%= image_tag motel.images[0].url %>
     <% else %>
       <%= image_tag "default-hotel" %>
     <% end %>
     <h1><%= motel.name %> <%= motel.level %>✩  </h1>
-    <p><%= motel.address %></p>
+    <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= motel.address %></p>
   </div>
 <% end %>

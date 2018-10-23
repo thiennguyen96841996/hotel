@@ -1,0 +1,59 @@
+<div class="Review-comment">
+  <div class="Review-comment-left">
+    <div>
+      <div class="Review-comment-leftHeader">
+        <div class="Review-comment-leftScore">
+          <% review.rate.to_i.times do  %>
+           <span class="glyphicon glyphicon-star"></span>
+          <% end %>
+          <% review.blank_stars.times do %>
+            <span class="glyphicon glyphicon-star-empty"></span>
+          <% end %>
+        </div>
+      </div>
+      <div class="Review-comment-reviewer" data-info-type="reviewer-name">
+        <strong><%= review.user.name %></strong>
+      </div>
+      <div class="Review-comment-reviewer" data-info-type="reviewer-name">
+        <i><%= review.user.email %></i>
+      </div>
+      <div class="Review-comment-reviewDate">
+        <div>
+          <span class="Review-statusBar-date "><%= review.updated_at %></span>
+        </div>
+      </div>
+    </div>
+    <div class="memberBadgingNoText is-shown-at-tablet">
+      <span class="glyphicon glyphicon-pencil"></span>
+      <span class="badgetext"><%= review.comments.count %></span>
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+      <span id="like-count-<%= review.id %>" class="badgetext"><%= review.likes.count %></span>
+    </div>
+    <div id="like-form-<%= review.id %>">
+    <%= render "shared/like_form", review: review %>
+    </div>
+        <% if user_signed_in? && (current_user.admin? || current_user.mod?) %>
+    <%= link_to t("change"), edit_motel_review_path(motel_id: @motel.id, id: review.id) if can? :edit, review %>
+    <%= link_to t("delete"), motel_review_path(motel_id: @motel.id, id: review.id), method: :delete,
+    data: {confirm: t("delete_confirm")} %>
+  <% end %>
+  </div><div class="Review-comment-right">
+    <div class="Review-comment-bubble blue">
+      <div class="Review-comment-body" data-selenium="">
+        <div class="Review-comment-bodyTitle">"<%= review.title %>"</div>
+        <div class="Review-comment-bodyText" data-type="comment"><%= review.content %></div>
+      </div>
+    </div>
+    <div class="img-show">
+      <% if review.images.count < 5 %>
+        <% review.images.each do |img| %>
+            <%= image_tag img.url, height:'100', width: '100' %>
+        <% end %>
+      <% else %>
+        <% 5.to_i.times do |i| %>
+            <%= image_tag review.images[i].url, height:'100', width: '100' %>
+        <% end %>
+      <% end %>
+</div>
+  </div>
+</div>

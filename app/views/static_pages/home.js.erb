@@ -1,0 +1,2 @@
+$("#motels").html("<%= j render partial: "static_pages/motel", collection: @motels %>");
+$("#paginator1").html("<%= j paginate(@motels, remote: true) %>");

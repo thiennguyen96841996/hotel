@@ -1,3 +1,12 @@
-<div class="center jumbotron">
-  <h1><%= t "hello" %></h1>
+<%= render "motels/slide" %>
+<span class="text-line">
+最新の口コミ。 お⁠得⁠な⁠料⁠金⁠。
+</span>
+
+<div id="motels" class="row" style="margin-top:30px;">
+  <%= render partial: "static_pages/motel", collection: @motels %>
+</div>
+
+<div id="paginator1">
+  <%= paginate @motels, remote: true %>
 </div>

@@ -45,10 +45,10 @@ class RoomsController < ApplicationController
   end
 
   def find_room
-    @room = Room.find_by params[:id]
+    @room = Room.find_by id: params[:id]
 
     return if @room
-    flash[:danger] = t "flash.no_room"
+    flash[:danger] = t "flash.no_record"
     redirect_to root_url
   end
 

@@ -1,0 +1,78 @@
+<%= render "slider", slider: @motel.images %>
+<div class="col-md-12 title">
+  <div class="name"><%= @motel.name %></div>
+  <span><%= @motel.level %> ✩</span>
+</div>
+
+<div class="address">
+  <% if user_signed_in? && (current_user.admin? || current_user.mod?) %>
+    <%= link_to t("change"), edit_motel_path(@motel) %>
+    <%= link_to t("delete"), motel_path(@motel), method: :delete,
+    data: {confirm: t("delete_confirm")} %>
+  <% end %>
+</div>
+
+<div class="address">
+  <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @motel.address %>
+</div>
+
+<div class="phone">
+  <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> <%= @motel.phone %>
+</div>
+
+<div id="MAIN" class="delineation">
+  <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
+    <div class="Header__header--3OgS9 Header__divider--waZKL">概要</div>
+    <div class="description"><%= @motel.description %></div>
+  </div>
+
+  <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
+    <div class="Header__header--3OgS9 Header__divider--waZKL">ルーム</div>
+    <div style="margin-top: 10px">
+        <% @motel.hotel_rooms.each do |hotel_rooms| %>
+          <div class="room-item">
+            <div class="room-type">
+                <%= hotel_rooms.room.room_type %>
+            </div>
+            <div class="bed-number">
+                <span class="glyphicon glyphicon-bed" aria-hidden="true"></span> Bed number : <%= hotel_rooms.room.bed_numbers %>
+            </div>
+            <div class="guest-no">
+                <span class="glyphicon glyphicon-user"></span> Max person :<%= hotel_rooms.room.guest_no %>
+            </div>
+            <div class="price">
+                <span class="glyphicon glyphicon-yen" aria-hidden="true"> Price :</span> <%= hotel_rooms.price %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
+    <div class="Header__header--3OgS9 Header__divider--waZKL">設備</div>
+    <div style="margin-top: 10px">
+        <% @motel.hotel_equips.each do |hotel_equips| %>
+            <div class="room-item">
+                <div class="room-type">
+                    <span class="glyphicon glyphicon-object-align-bottom"></span> Equipment : <%= hotel_equips.equipment.name %>
+                </div>
+                <div class="price">
+                    <span class="glyphicon glyphicon-yen" aria-hidden="true"> Price :</span> <%= hotel_equips.price %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
+    <div class="Header__header--3OgS9 Header__divider--waZKL">レビュー</div>
+    <div style="margin-top: 10px">
+        <%= link_to "レビューを書く", new_motel_review_path(motel_id: @motel.id)%>
+        <%= render partial: "motels/review", collection: @motel.reviews %>
+
+    </div>
+  </div>
+
+</div>
+
+

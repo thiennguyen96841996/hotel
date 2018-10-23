@@ -1,0 +1,6 @@
+<% provide :title, t("review.edit_review") %>
+<% provide :button, t("edit") %>
+<% provide :url, motel_review_path(motel_id: @motel.id, id: @review.id) %>
+<div class="row">
+  <%= render "form" %>
+</div>

@@ -240,3 +240,30 @@ span.picture {
   background-color: $alert-alert-background;
   border-color: $alert-alert-border;
 }
+
+.block {
+  display: inline-block;
+  form {
+    display: inline;
+
+    position: relative;
+  }
+  input{
+    width: auto !important;
+  }
+}
+
+.mod {
+  display: inline-block;
+  form {
+    display: inline-block;
+    position: relative;
+  }
+  input{
+    width: auto !important;
+  }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white !important;
+}

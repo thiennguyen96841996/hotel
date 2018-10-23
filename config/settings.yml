@@ -3,4 +3,10 @@ email_max_length: 255
 pass_min_length: 6
 title_max_length: 150
 password_reset_expired: 2
-per_page: 2
+per_page: 9
+block: block
+unblock: unblock
+mod: mod
+member: member
+unlike: unlike
+like: like

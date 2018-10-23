@@ -22,8 +22,9 @@
   </div>
   <div class="field">
   <%= f.label :images, class: "label" %>
-  <%= f.file_field :images, multiple: true, class: " input-add-new" %>
+  <%= f.file_field :images, multiple: true, class: " input-add-new upload-image" %>
   </div>
+  <div id="preview"></div>
   <h3 style="margin-left:180px;"><%= t "equipment.item" %></h3>
   <div id='equipments'>
     <%= f.fields_for :hotel_equips do |hotel_equip| %>

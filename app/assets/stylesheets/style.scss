@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500);
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Delius');
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush');
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -96,18 +98,37 @@ span.current {
   list-style-type: none;
   transition: 1s ease-in;
   background-color: #FCFAFA;
+  position: relative;
   &:hover {
-    background-color: #E8E8E8;
+    background-color: #C6A861;
+    color: white;
     a {
-      color: rgb(26, 21, 21);
+      color: white;
     }
   }
 }
 
 //end
 
-.delete {
+
+@mixin method {
+  position: absolute;
+  top: 20px;
   float: right;
+  padding: 5px;
+  &:hover{
+    border: 1px solid #E8E8E8;
+  }
+}
+
+.delete {
+  @include method;
+  right: 10px;
+}
+
+.edit {
+  @include method;
+  right: 70px;
 }
  // phan content
 .content a {
@@ -233,7 +254,7 @@ span.current {
 }
 
 // img
-img {
+.field span.picture  img {
   position: relative;
   height: 291px;
   border: 1px solid #e6dfdf;
@@ -258,4 +279,152 @@ img {
 
 .field:hover .middle {
   opacity: 1;
+}
+
+.home-form {
+  @include background-tile;
+  margin: 20px 18px;
+  height: 500px;
+  width: 353px;
+  position: relative;
+  color: white;
+  text-transform: capitalize;
+}
+
+.home-form::before, .home-form::after {
+  background-image: linear-gradient(-180deg,transparent 60%,#203218 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+}
+
+.home-form img {
+  width: 353px;
+  height: 500px;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  position: absolute;
+  &:hover {
+    background-color: #C6A861;
+  }
+}
+.home-form h1 {
+  left: 50%;
+  font-size: 27px;
+  bottom: 60px;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-50%);
+  font-family: 'Delius', cursive;
+}
+.home-form h2 {
+  left: 50%;
+  font-size: 18px;
+  bottom: 10px;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-50%);
+  font-family: 'Delius', cursive;
+  font-style: italic;
+}
+.home-form p {
+  left: 50%;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(-50%);
+  font-style: italic;
+  font-size: 14px;
+  font-family: 'Alex Brush', cursive;
+}
+
+
+// text line for homepage
+span.text-line{
+  color: #fbab19;
+  font-size: 46px;
+  font-family: 'Alex Brush', cursive;
+  text-transform: none;
+}
+.text-line::before {
+  display: inline-block;
+  content: '';
+  width: 65px;
+  height: 1px;
+  margin-right: 10px;
+  margin-top: 9px;
+  background-color: #fbab19;
+}
+
+// level span for head title
+.title span{
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 2px 6px;
+  margin: 32px 5px 18px 4px;
+  background: #C6A861;
+  color: #fff;
+  float: left;
+}
+
+.title .name {
+  font-weight: 600;
+  font-size: 30px;
+  color: #444;
+  margin: 20px 5px 18px 4px;
+  float: left;
+  text-transform: capitalize;
+}
+
+//for address
+.address, .phone {
+  text-transform: capitalize;
+  margin-left: 15px;
+  font-size: 17px;
+}
+.description{
+  margin-top: 15px;
+  margin-left: 15px;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.room-item:hover {
+  border-left: 20px solid #E8E8E8;
+  -webkit-transition: 1.5s;
+}
+.guest-no, .bed-number {
+  text-transform: capitalize;
+  margin-left: 35px;
+  font-size: 17px;
+}
+.price{
+  margin-left: 35px;
+  font-size: 17px;
+  margin-bottom: 50px;
+}
+
+.room-type {
+  margin-left: 15px;
+  font-size: 22px;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  line-height: 1;
+}
+
+.img-show {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom:60px;
+}
+.img-show img {
+  padding: 5px;
 }
