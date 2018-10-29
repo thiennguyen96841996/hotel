@@ -3,11 +3,16 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
   enum user_type: [:member, :admin, :mod]
   enum blocked: [:active, :blocked]
-  has_many :relationships
   has_many :comments
   has_many :reviews
   has_many :replies
   has_many :likes
+  has_many :active_relationships, class_name: Relationship.name,
+    foreign_key: :follower_id, dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+    foreign_key: :followed_id, dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
   PASSWORD_VALIDATOR = /(      # Start of group
         (?:                        # Start of nonmatching group, 4 possible solutions
           (?=.*[a-z])              # Must contain one lowercase character
@@ -34,6 +39,8 @@ class User < ApplicationRecord
     uniqueness: {case_sensitive: false}
   validate :password_complexity
   scope :order_user, ->{order created_at: :desc}
+  mount_uploader :picture, PictureUploader
+
 
   def active_for_authentication?
     super && !blocked?
@@ -75,6 +82,18 @@ class User < ApplicationRecord
     end
   end
 
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
+  end
+
   private
 
   def password_complexity
@@ -83,5 +102,4 @@ class User < ApplicationRecord
     errors.add :password, I18n.t("activerecord.errors.models.user.attributes.password.invalid")
   end
 
-  mount_uploader :picture, PictureUploader
 end

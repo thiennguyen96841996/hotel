@@ -25,6 +25,7 @@ gem 'cancancan', '~> 2.0'
 gem "kaminari"
 gem "cocoon"
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

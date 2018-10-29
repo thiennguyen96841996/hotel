@@ -1,0 +1,8 @@
+<li>
+  <% if user_info.picture? %>
+    <%= image_tag user_info.picture.thumb.url, class: "gravatar" %>
+    <% else %>
+      <%= image_tag("default-avatar", alt: user_info.name, class: "gravatar", width: 50, height: 50) %>
+    <% end %>
+  <%= link_to user_info.name, user_info %>
+</li>

@@ -9,6 +9,7 @@ class Review < ApplicationRecord
   validates :rate, presence: true
   serialize :images, JSON
   mount_uploaders :images, ImagesUploader
+  scope :order_after_like, ->{order rate: :desc}
 
   def blank_stars
     5 - rate.to_i

@@ -1,0 +1,26 @@
+<% provide :title, @user.name %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <% if @user.picture? %>
+          <%= image_tag @user.picture.thumb.url, class: "gravatar" %>
+        <% else %>
+          <%= image_tag("default-avatar", alt: @user.name, class: "gravatar", width: 50, height: 50) %>
+        <% end %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+
+  </aside>
+  <div class="col-md-8">
+    <%= render "follow_form" if user_signed_in? %>
+    <% if @user.reviews.any? %>
+      <h3><%= "レビュー" %> (<%= @user.reviews.count %>)</h3>
+        <!-- TODO: show review -->
+    <% end %>
+  </div>
+</div>

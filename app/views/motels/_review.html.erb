@@ -4,30 +4,31 @@
       <div class="Review-comment-leftHeader">
         <div class="Review-comment-leftScore">
           <% review.rate.to_i.times do  %>
-           <span class="glyphicon glyphicon-star"></span>
+           <span class="glyphicon glyphicon-star blue_star"></span>
           <% end %>
           <% review.blank_stars.times do %>
-            <span class="glyphicon glyphicon-star-empty"></span>
+            <span class="glyphicon glyphicon-star-empty blue_star"></span>
           <% end %>
         </div>
       </div>
       <div class="Review-comment-reviewer" data-info-type="reviewer-name">
         <strong><%= review.user.name %></strong>
       </div>
-      <div class="Review-comment-reviewer" data-info-type="reviewer-name">
-        <i><%= review.user.email %></i>
+      <div class="Review-comment-frequentTraveler">
+        <span class="Review-comment-frequentTraveler-text"><%= review.user.email %></span>
       </div>
       <div class="Review-comment-reviewDate">
         <div>
-          <span class="Review-statusBar-date "><%= review.updated_at %></span>
+          <i class="glyphicon glyphicon-time ficon ficon-16 ficon-mmb-inbox review-gray"></i>
+          <span class="Review-statusBar-date "><%= time_ago_in_words(review.created_at) %></span>
         </div>
       </div>
     </div>
     <div class="memberBadgingNoText is-shown-at-tablet">
       <span class="glyphicon glyphicon-pencil"></span>
-      <span class="badgetext"><%= review.comments.count %></span>
+      <span class="badgetext review-gray"><%= review.comments.count %></span>
       <span class="glyphicon glyphicon-thumbs-up"></span>
-      <span id="like-count-<%= review.id %>" class="badgetext"><%= review.likes.count %></span>
+      <span id="like-count-<%= review.id %>" class="badgetext review-gray"><%= review.likes.count %></span>
     </div>
     <div id="like-form-<%= review.id %>">
     <%= render "shared/like_form", review: review %>
@@ -40,8 +41,13 @@
   </div><div class="Review-comment-right">
     <div class="Review-comment-bubble blue">
       <div class="Review-comment-body" data-selenium="">
-        <div class="Review-comment-bodyTitle">"<%= review.title %>"</div>
+        <div class="Review-comment-bodyTitle"><%= review.title %></div>
         <div class="Review-comment-bodyText" data-type="comment"><%= review.content %></div>
+      </div>
+      <div class="Review-statusBar">
+        <div class="Review-statusBar-right">
+            <%= link_to "もっと見る", motel_review_path(motel_id: @motel.id, id: review.id), class: " Review-statusBar-translateButton" %>
+        </div>
       </div>
     </div>
     <div class="img-show">

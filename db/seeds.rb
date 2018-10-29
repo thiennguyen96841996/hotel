@@ -32,10 +32,17 @@ end
 end
 
 10.times do |n|
-  review = Review.create({title: Faker::Lorem.words(4), content: Faker::Lorem.paragraph(50),
-   user_id: Faker::Number.within(0..10), motel_id: Faker::Number.within(0..2)})
+  review = Review.create({title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph(50),
+   user_id: Faker::Number.within(0..10), motel_id: Faker::Number.within(0..2), rate: Faker::Number.within(0..5})
 end
 
 10.times do |n|
   like = Like.create({user_id: Faker::Number.unique.within(1..10), review_id: Faker::Number.within(1..10)})
 end
+
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each {|followed| user.follow(followed)}
+followers.each {|follower| follower.follow(user)}

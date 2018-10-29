@@ -26,50 +26,55 @@
     <div class="description"><%= @motel.description %></div>
   </div>
 
-  <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
-    <div class="Header__header--3OgS9 Header__divider--waZKL">ルーム</div>
-    <div style="margin-top: 10px">
-        <% @motel.hotel_rooms.each do |hotel_rooms| %>
-          <div class="room-item">
-            <div class="room-type">
-                <%= hotel_rooms.room.room_type %>
-            </div>
-            <div class="bed-number">
-                <span class="glyphicon glyphicon-bed" aria-hidden="true"></span> Bed number : <%= hotel_rooms.room.bed_numbers %>
-            </div>
-            <div class="guest-no">
-                <span class="glyphicon glyphicon-user"></span> Max person :<%= hotel_rooms.room.guest_no %>
-            </div>
-            <div class="price">
-                <span class="glyphicon glyphicon-yen" aria-hidden="true"> Price :</span> <%= hotel_rooms.price %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-  </div>
-
-  <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
-    <div class="Header__header--3OgS9 Header__divider--waZKL">設備</div>
-    <div style="margin-top: 10px">
-        <% @motel.hotel_equips.each do |hotel_equips| %>
+  <% if @motel.hotel_rooms.count > 0 %>
+  <!-- TODO: fix view room list -->
+    <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
+      <div class="Header__header--3OgS9 Header__divider--waZKL">ルーム</div>
+      <div style="margin-top: 10px">
+          <% @motel.hotel_rooms.each do |hotel_rooms| %>
             <div class="room-item">
-                <div class="room-type">
-                    <span class="glyphicon glyphicon-object-align-bottom"></span> Equipment : <%= hotel_equips.equipment.name %>
-                </div>
-                <div class="price">
-                    <span class="glyphicon glyphicon-yen" aria-hidden="true"> Price :</span> <%= hotel_equips.price %>
-                </div>
+              <div class="room-type">
+                  <%= hotel_rooms.room.room_type %>
+              </div>
+              <div class="bed-number">
+                  <span class="glyphicon glyphicon-bed" aria-hidden="true"></span> Bed number : <%= hotel_rooms.room.bed_numbers %>
+              </div>
+              <div class="guest-no">
+                  <span class="glyphicon glyphicon-user"></span> Max person :<%= hotel_rooms.room.guest_no %>
+              </div>
+              <div class="price">
+                  <span class="glyphicon glyphicon-yen" aria-hidden="true"> Price :</span> <%= hotel_rooms.price %>
+              </div>
             </div>
-        <% end %>
+          <% end %>
+        </div>
     </div>
-  </div>
+  <% end %>
+
+  <% if @motel.hotel_equips.count > 0 %>
+  <!-- TODO: fix view equip list -->
+    <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
+      <div class="Header__header--3OgS9 Header__divider--waZKL">アメニティ</div>
+      <div style="margin-top: 10px">
+          <% @motel.hotel_equips.each do |hotel_equips| %>
+              <div class="room-item">
+                  <div class="room-type">
+                      <span class="glyphicon glyphicon-object-align-bottom"></span> Equipment : <%= hotel_equips.equipment.name %>
+                  </div>
+                  <div class="price">
+                      <span class="glyphicon glyphicon-yen" aria-hidden="true"> Price :</span> <%= hotel_equips.price %>
+                  </div>
+              </div>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="Section__section--39L_Q" data-tab="TABS_OVERVIEW" id="OVERVIEW">
     <div class="Header__header--3OgS9 Header__divider--waZKL">レビュー</div>
     <div style="margin-top: 10px">
         <%= link_to "レビューを書く", new_motel_review_path(motel_id: @motel.id)%>
-        <%= render partial: "motels/review", collection: @motel.reviews %>
-
+        <%= render partial: "motels/review", collection: @motel.reviews.order_after_like %>
     </div>
   </div>
 

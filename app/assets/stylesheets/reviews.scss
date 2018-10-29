@@ -64,7 +64,7 @@
 }
 .memberBadgingNoText .glyphicon {
     font-size: 16px;
-    color: #00a680;
+    color: #5392f9;
 }
 
 div.helpful {
@@ -74,20 +74,170 @@ div.helpful {
 
 div.helpful.liked {
     .glyphicon {
-      color: #00a680;
+      color: #5392f9;
+    }
+    .hsx_thank_button{
+      color: #5392f9;
     }
 }
 
 .hsx_thank_button {
     height: 20px;
     padding: 0 6px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #737373;
     border-radius: 4px;
     display: inline-block;
     background: #ffffff;
-    color: #4a4a4a;
     text-align: center;
     box-sizing: border-box;
+    color: #737373;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.Review-comment-bubble.blue {
+    background-color: #f4f8fe;
+}
+.Review-statusBar {
+    padding-top: 15px;
+    display: table;
+    width: 100%;
+}
+.MIN-14205 .Review-statusBar-right {
+    height: 9px;
+}
+.Review-statusBar-right {
+    width: 25%;
+    text-align: right;
+    line-height: 40px;
+    vertical-align: middle;
+    display: table-cell;
+}
+.Review-statusBar-translateButton {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #3d81f5;
+    border: 1px solid #3d81f5;
+    font-weight: 700;
+    background-color: transparent;
+    font-family: mallory,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
+html[dir=ltr] .Review-comment-reviewDate .ficon-mmb-inbox {
+    margin-right: 4px;
+}
+
+.Review-comment-reviewDate .ficon-mmb-inbox {
+    vertical-align: -2px;
+}
+.ficon {
+    font-family: icons;
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: 400;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 3px;
+}
+.ficon-16 {
+    font-size: 16px;
+}
+
+.Review-comment-frequentTraveler {
+    color: #5392f9;
+    display: inline-block;
+}
+
+html[dir=ltr] .Review-comment-frequentTraveler-text {
+    margin-left: 7px;
+}
+
+.Review-comment-frequentTraveler-text {
+    font-weight: bolder;
+    line-height: 1.33;
+    font-size: 12px;
+}
+
+.Review-comment-reviewDate .Review-statusBar-date {
+    font-size: 14px;
+    line-height: 21px;
+    color: #737373;
+}
+.Review-statusBar-date {
+    color: #999;
+    line-height: 40px;
+}
+
+.MIN-14205 .Review-comment-reviewer {
+    color: #5392f9;
+}
+
+.Review-comment-reviewer {
+    display: table-cell;
+    font-size: 16px;
+    color: #488bf8;
+    margin-top: 10px;
+    height: auto;
+    vertical-align: bottom;
+}
+
+.blue_star {
+    color: #5392f9;
+}
+
+.review-gray {
+    color: #737373;
+}
+
+.Review-statusBar-translateButton:hover {
+    background-color: #3d81f5;
+    color: #fff;
+    text-decoration: none;
+}
+
+.rating-stars ul {
+  list-style-type:none;
+  padding:0;
+
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+}
+
+/* Idle State of the stars */
+.rating-stars ul > li.star > i.fa {
+  font-size:2.5em; /* Change the size of the stars */
+  color:#ccc; /* Color on idle state */
+}
+
+/* Hover state of the stars */
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+
+/* Selected state of the stars */
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
 

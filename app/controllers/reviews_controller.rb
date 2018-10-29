@@ -3,7 +3,12 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:edit, :update, :destroy]
   before_action :find_motel, only: [:new, :create, :edit, :update, :destroy, :show]
   before_action :authenticate_user!, only: [:new, :like]
+
   def new
+    if current_user.reviews.where(motel_id: params[:motel_id]).present?
+      flash[:alert] = t "flash.already_review"
+      redirect_to motel_path(@motel)
+    end
     @review = Review.new
   end
 
