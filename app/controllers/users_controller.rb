@@ -6,7 +6,9 @@ class UsersController < ApplicationController
                  .per Settings.per_page
   end
 
-  def show; end
+  def show
+    
+  end
 
   def update
     respond_to do |format|

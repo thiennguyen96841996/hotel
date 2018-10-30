@@ -33,7 +33,7 @@ end
 
 10.times do |n|
   review = Review.create({title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph(50),
-   user_id: Faker::Number.within(0..10), motel_id: Faker::Number.within(0..2), rate: Faker::Number.within(0..5})
+   user_id: Faker::Number.within(0..10), motel_id: Faker::Number.within(0..2), rate: Faker::Number.within(0..5)})
 end
 
 10.times do |n|
